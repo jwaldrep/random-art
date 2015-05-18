@@ -10,7 +10,10 @@ def circle(x,y):
     radius = random.random()
     thickness = random.random()/4
     return 1 if abs(sqrt(x**2 + y**2) - radius) < thickness else 0
-def grad(x,y): return sqrt( (x)**2 + (y)**2 );
+def grad(x,y):
+    cx = random.random()
+    cy = random.random()
+    return sqrt( (x-cx)**2 + (y-cx)**2 );
 def div(x,y):
     if y != 0:
         return x / y
