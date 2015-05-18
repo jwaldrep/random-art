@@ -1,11 +1,16 @@
 import random
-from math import cos, sin, tan, log10
+from math import cos, sin, tan, log10, sqrt
 
 # Your job is to create better version of create_expression and
 # run_expression to create random art.
 # Your expression should have a __str__() function defined for it.
 
 def avg(x, y): return (x + y) / 2;
+def circle(x,y):
+    radius = random.random()
+    thickness = random.random()/4
+    return 1 if abs(sqrt(x**2 + y**2) - radius) < thickness else 0
+def grad(x,y): return sqrt( (x - 0.5)**2 + (y - 0.5)**2 )
 
 def create_expression():
     """This function takes no arguments and returns an expression that
@@ -15,11 +20,13 @@ def create_expression():
     exprs_1 = ['cos(z)', 'sin(z)', 'tan(z)',
                'z**2',
                ]
-    exprs_2 = [#'random.triangular(x,y)',
+    exprs_2 = ['random.triangular(x,y)',
                #'random.gauss(x,y)',
-               'avg(x,y)',
-               '(x*y)',
-               'x', 'y',
+#               'avg(x,y)',
+#               '(x*y)',
+            #    'x', 'y',
+               'circle(x,y)',
+               'grad(x,y)',
             #    'random.expovariate(x/(y+1))',
                ]
 
