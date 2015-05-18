@@ -10,7 +10,13 @@ def circle(x,y):
     radius = random.random()
     thickness = random.random()/4
     return 1 if abs(sqrt(x**2 + y**2) - radius) < thickness else 0
-def grad(x,y): return sqrt( (x - 0.5)**2 + (y - 0.5)**2 )
+def grad(x,y): return sqrt( (x)**2 + (y)**2 );
+def div(x,y):
+    if y != 0:
+        return x / y
+    if x != 0:
+        return y / x
+    return x
 
 def create_expression():
     """This function takes no arguments and returns an expression that
@@ -19,23 +25,31 @@ def create_expression():
 
     exprs_1 = ['cos(z)', 'sin(z)', 'tan(z)',
                'z**2',
+            #    'sqrt((z+.1)/1.1)'
                ]
-    exprs_2 = ['random.triangular(x,y)',
+    exprs_2 = [
+                # 'random.triangular(x,y)',
                #'random.gauss(x,y)',
 #               'avg(x,y)',
 #               '(x*y)',
             #    'x', 'y',
-               'circle(x,y)',
+            #   'circle(x,y)',
                'grad(x,y)',
+            #   'div(x,y)'
             #    'random.expovariate(x/(y+1))',
                ]
 
     big_expr = random.choice(exprs_1)
 
-    for _ in range(random.randrange(30)):
+    for _ in range(random.randrange(10)):
         big_expr = big_expr.replace('z', random.choice(exprs_1))
 
     big_expr = big_expr.replace('z', random.choice(exprs_2))
+    big_expr = big_expr.replace('x', random.choice(exprs_2))
+    big_expr = big_expr.replace('y', random.choice(exprs_2))
+    big_expr = big_expr.replace('z', random.choice(exprs_2))
+
+
 
     return big_expr
 
