@@ -1,35 +1,42 @@
 import random
 from math import cos, sin, tan, log10, sqrt
+from math import exp as ep
 
-# Your job is to create better version of create_expression and
-# run_expression to create random art.
-# Your expression should have a __str__() function defined for it.
 
-def avg(x, y): return (x + y) / 2;
-def circle(x,y):
+def avg(x, y):
+    return (x + y) / 2
+
+
+def circle(x, y):
     radius = random.random()
     thickness = random.random()/4
     return 1 if abs(sqrt(x**2 + y**2) - radius) < thickness else 0
-def grad(x,y):
+
+
+def grad(x, y):
     cx = random.random()
     cy = random.random()
-    return sqrt( (x-cx)**2 + (y-cx)**2 );
-def div(x,y):
+    return sqrt((x - cx)**2 + (y - cy)**2)
+
+
+def div(x, y):
     if y != 0:
         return x / y
     if x != 0:
         return y / x
     return x
-def to_the(x,y):
+
+
+def to_the(x, y):
     if x == 0:
         return x
     return abs(x)**y
+
+
 def recip(x):
     if x == 0:
         return x
-    if 1/x**2 > 1:
-        return 1
-    return 1/x**2
+    return 1/x
 
 
 def create_expression():
@@ -48,26 +55,26 @@ def create_expression():
     The string is returned, with the intention of being called via eval()
     """
 
-
     exprs_1 = ['cos(z)', 'sin(z)',
                'cos(z*10)', 'sin(z*10)',
-               #'z**2',
-#               'sqrt(abs(z))',
-               #'z/2',
-#               'recip(x)',
+               # 'z**2',
+               'sqrt(abs(z))',
+               # 'z/2',
+               'recip(z)',
+               'ep(z)',
                ]
-    exprs_2 = [
-            #    'random.triangular(x,y)',
-            #    'random.gauss(x,y)',
-#                'avg(x,y)',
-            #    '(x*y)',
-#                'to_the(x,y)',
-            #     'x', 'y',
-#                'circle(x,y)',
-                'grad(x,y)',
-                'div(x,y)',
-                 'cos(x)*sin(y)',
-                # 'random.expovariate(x/(y+1))',
+
+    exprs_2 = ['avg(x,y)',
+               '(x*y)',
+               # 'to_the(x,y)',
+               # 'x', 'y',
+               # 'circle(x,y)',
+               'grad(x,y)',
+               'div(x,y)',
+               'cos(x)*sin(y)',
+               'cos(y)*sin(x)'
+               # 'random.triangular(x,y)',
+               # 'random.gauss(x,y)',
                ]
 
     big_expr = random.choice(exprs_1)
@@ -77,14 +84,13 @@ def create_expression():
 
     big_expr = big_expr.replace('z', random.choice(exprs_2))
 
-    for _ in range(random.randrange(1)): #this may make the computer explode
+    for _ in range(random.randrange(3)):  # this may make the computer explode
         big_expr = big_expr.replace('x', random.choice(exprs_2))
         big_expr = big_expr.replace('y', random.choice(exprs_2))
         big_expr = big_expr.replace('z', random.choice(exprs_2))
 
-
-
     return big_expr
+
 
 def run_expression(expr, x, y):
     """This function takes an expression created by create_expression and
