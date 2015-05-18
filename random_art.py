@@ -46,12 +46,12 @@ def create_expression():
     """
 
 
-    exprs_1 = ['cos(z)', 'sin(z)', 'tan(z)',
-               'cos(z*10)', 'sin(z*10)', 'tan(z*10)',
+    exprs_1 = ['cos(z)', 'sin(z)',
+               'cos(z*10)', 'sin(z*10)',
                #'z**2',
 #               'sqrt(abs(z))',
                #'z/2',
-               #'recip(x)',
+#               'recip(x)',
                ]
     exprs_2 = [
             #    'random.triangular(x,y)',
@@ -62,8 +62,8 @@ def create_expression():
             #     'x', 'y',
 #                'circle(x,y)',
                 'grad(x,y)',
-#                'div(x,y)',
-#                 'cos(x)*sin(y)',
+                'div(x,y)',
+                 'cos(x)*sin(y)',
                 # 'random.expovariate(x/(y+1))',
                ]
 
