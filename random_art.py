@@ -85,8 +85,8 @@ def create_expression():
     big_expr = big_expr.replace('z', random.choice(exprs_2))
 
     for _ in range(random.randrange(3)):  # this may make the computer explode
-        big_expr = big_expr.replace('x', random.choice(exprs_2))
-        big_expr = big_expr.replace('y', random.choice(exprs_2))
+        big_expr = big_expr.replace('x', random.choice(exprs_1))
+        big_expr = big_expr.replace('y', random.choice(exprs_1))
         big_expr = big_expr.replace('z', random.choice(exprs_2))
 
     return big_expr
