@@ -21,26 +21,41 @@ def to_the(x,y):
     if x == 0:
         return x
     return abs(x)**y
+def recip(x): return 1/x if x != 0 else x
 
 def create_expression():
     """This function takes no arguments and returns an expression that
-    generates a number between -1.0 and 1.0, given x and y coordinates."""
+    generates a number between -1.0 and 1.0, given x and y coordinates.
+
+    exprs_1 contains strings of function calls for single-parameter functions
+            These must use z as a variable
+    exprs_2 contains strings of function calls for 2-parameter (x,y) functions
+
+    A nested string of single function calls (of random length)
+            is built by recursively replacing z
+    Then a second round of replacements adds a random number of
+            2-parameter functions to the inside
+
+    The string is returned, with the intention of being called via eval()
+    """
 
 
     exprs_1 = ['cos(z)', 'sin(z)', 'tan(z)',
                #'z**2',
-            #    'sqrt((z+.1)/1.1)'
+               'sqrt(abs(z))',
+               'z/2',
+               'recip(x)',
                ]
     exprs_2 = [
             #    'random.triangular(x,y)',
             #    'random.gauss(x,y)',
-#               'avg(x,y)',
+                'avg(x,y)',
             #    '(x*y)',
                 'to_the(x,y)',
             #     'x', 'y',
             #    'circle(x,y)',
-            #    'grad(x,y)',
-            #    'div(x,y)'
+                'grad(x,y)',
+                'div(x,y)'
                 # 'random.expovariate(x/(y+1))',
                ]
 
