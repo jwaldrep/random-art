@@ -21,7 +21,13 @@ def to_the(x,y):
     if x == 0:
         return x
     return abs(x)**y
-def recip(x): return 1/x if x != 0 else x
+def recip(x):
+    if x == 0:
+        return x
+    if 1/x**2 > 1:
+        return 1
+    return 1/x**2
+
 
 def create_expression():
     """This function takes no arguments and returns an expression that
@@ -41,32 +47,34 @@ def create_expression():
 
 
     exprs_1 = ['cos(z)', 'sin(z)', 'tan(z)',
+               'cos(z*10)', 'sin(z*10)', 'tan(z*10)',
                #'z**2',
-               'sqrt(abs(z))',
-               'z/2',
-               'recip(x)',
+#               'sqrt(abs(z))',
+               #'z/2',
+               #'recip(x)',
                ]
     exprs_2 = [
             #    'random.triangular(x,y)',
             #    'random.gauss(x,y)',
-                'avg(x,y)',
+#                'avg(x,y)',
             #    '(x*y)',
-                'to_the(x,y)',
+#                'to_the(x,y)',
             #     'x', 'y',
-            #    'circle(x,y)',
+#                'circle(x,y)',
                 'grad(x,y)',
-                'div(x,y)'
+#                'div(x,y)',
+#                 'cos(x)*sin(y)',
                 # 'random.expovariate(x/(y+1))',
                ]
 
     big_expr = random.choice(exprs_1)
 
-    for _ in range(random.randrange(30)):
+    for _ in range(random.randrange(10)):
         big_expr = big_expr.replace('z', random.choice(exprs_1))
 
     big_expr = big_expr.replace('z', random.choice(exprs_2))
 
-    for _ in range(random.randrange(2)): #this may make the computer explode
+    for _ in range(random.randrange(1)): #this may make the computer explode
         big_expr = big_expr.replace('x', random.choice(exprs_2))
         big_expr = big_expr.replace('y', random.choice(exprs_2))
         big_expr = big_expr.replace('z', random.choice(exprs_2))
