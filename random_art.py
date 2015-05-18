@@ -12,8 +12,10 @@ def circle(x, y):
     thickness = random.random()/4
     return 1 if abs(sqrt(x**2 + y**2) - radius) < thickness else 0
 
+def grad(x,y):
+    return sqrt( (x - 0.5)**2 + (y - 0.5)**2 )
 
-def grad(x, y):
+def grad_offset(x, y):
     cx = random.random()
     cy = random.random()
     return sqrt((x - cx)**2 + (y - cy)**2)
@@ -61,7 +63,7 @@ def create_expression():
                'sqrt(abs(z))',
                # 'z/2',
                'recip(z)',
-               'ep(z)',
+               # 'ep(z)',
                ]
 
     exprs_2 = ['avg(x,y)',
@@ -71,8 +73,8 @@ def create_expression():
                # 'circle(x,y)',
                'grad(x,y)',
                'div(x,y)',
-               'cos(x)*sin(y)',
-               'cos(y)*sin(x)'
+               # 'cos(x)*sin(y)',
+               # 'cos(y)*sin(x)'
                # 'random.triangular(x,y)',
                # 'random.gauss(x,y)',
                ]
