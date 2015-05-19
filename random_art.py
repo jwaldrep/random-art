@@ -1,5 +1,5 @@
 import random
-from math import cos, sin, tan, log10, sqrt
+from math import cos, sin, tan, log10, sqrt, pi
 from math import exp as ep
 
 
@@ -13,7 +13,7 @@ def circle(x, y):
     return 1 if abs(sqrt(x**2 + y**2) - radius) < thickness else 0
 
 def grad(x,y):
-    return sqrt( (x - 0.5)**2 + (y - 0.5)**2 )
+    return sqrt( (x)**2 + (y)**2 )
 
 def grad_offset(x, y):
     cx = random.random()
@@ -58,22 +58,23 @@ def create_expression():
     """
 
     exprs_1 = ['cos(z)', 'sin(z)',
-               'cos(z*10)', 'sin(z*10)',
-               # 'z**2',
-               'sqrt(abs(z))',
+               'cos(z*3*pi)', 'sin(z*3*pi)',
+               'z**2',
+               # 'sqrt(abs(z))',
                # 'z/2',
-               'recip(z)',
+               #'recip(z)',
                # 'ep(z)',
                ]
 
-    exprs_2 = ['avg(x,y)',
-               '(x*y)',
+    exprs_2 = [# 'cos(pi*x*y)',
+               # 'avg(x,y)',
+               # '(x*y)',
                # 'to_the(x,y)',
                # 'x', 'y',
                # 'circle(x,y)',
                'grad(x,y)',
                'div(x,y)',
-               # 'cos(x)*sin(y)',
+               'cos(5*pi*x)*sin(5*pi*y)',
                # 'cos(y)*sin(x)'
                # 'random.triangular(x,y)',
                # 'random.gauss(x,y)',
@@ -81,7 +82,7 @@ def create_expression():
 
     big_expr = random.choice(exprs_1)
 
-    for _ in range(random.randrange(10)):
+    for _ in range(random.randrange(5)):
         big_expr = big_expr.replace('z', random.choice(exprs_1))
 
     big_expr = big_expr.replace('z', random.choice(exprs_2))
