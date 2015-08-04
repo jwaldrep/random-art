@@ -9,16 +9,18 @@ def avg(x, y):
 
 def circle(x, y):
     radius = random.random()
-    thickness = random.random()/4
-    return 1 if abs(sqrt(x**2 + y**2) - radius) < thickness else 0
+    thickness = random.random() / 4
+    return 1 if abs(sqrt(x ** 2 + y ** 2) - radius) < thickness else 0
 
-def grad(x,y):
-    return sqrt( (x)**2 + (y)**2 )
+
+def grad(x, y):
+    return sqrt((x) ** 2 + (y) ** 2)
+
 
 def grad_offset(x, y):
     cx = random.random()
     cy = random.random()
-    return sqrt((x - cx)**2 + (y - cy)**2)
+    return sqrt((x - cx) ** 2 + (y - cy) ** 2)
 
 
 def div(x, y):
@@ -32,13 +34,13 @@ def div(x, y):
 def to_the(x, y):
     if x == 0:
         return x
-    return abs(x)**y
+    return abs(x) ** y
 
 
 def recip(x):
     if x == 0:
         return x
-    return 1/x
+    return 1 / x
 
 
 def create_expression():
@@ -62,24 +64,24 @@ def create_expression():
                'z**2',
                # 'sqrt(abs(z))',
                # 'z/2',
-               #'recip(z)',
+               # 'recip(z)',
                # 'ep(z)',
                ]
 
-    exprs_2 = [# 'cos(pi*x*y)',
-               # 'avg(x,y)',
-               # '(x*y)',
-               # 'to_the(x,y)',
-               # 'x', 'y',
-               # 'circle(x,y)',
-               'grad(x,y)',
-               'div(x,y)',
-               'cos(5*pi*x)*sin(5*pi*y)',
-               # 'cos(5*pi*x**2)*sin(5*pi*y**2)',
-               # 'cos(y)*sin(x)'
-               # 'random.triangular(x,y)',
-               # 'random.gauss(x,y)',
-               ]
+    exprs_2 = [  # 'cos(pi*x*y)',
+                 # 'avg(x,y)',
+                 # '(x*y)',
+                 # 'to_the(x,y)',
+                 # 'x', 'y',
+                 # 'circle(x,y)',
+                 'grad(x,y)',
+                 'div(x,y)',
+                 'cos(5*pi*x)*sin(5*pi*y)',
+                 # 'cos(5*pi*x**2)*sin(5*pi*y**2)',
+                 # 'cos(y)*sin(x)'
+                 # 'random.triangular(x,y)',
+                 # 'random.gauss(x,y)',
+                 ]
 
     big_expr = random.choice(exprs_1)
 
