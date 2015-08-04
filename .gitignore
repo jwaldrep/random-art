@@ -1,2 +1,5 @@
 *.png
 .envrc
+.direnv
+.idea
+__pycache__

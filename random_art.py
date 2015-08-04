@@ -75,7 +75,7 @@ def create_expression():
                'grad(x,y)',
                'div(x,y)',
                'cos(5*pi*x)*sin(5*pi*y)',
-               'cos(5*pi*x**2)*sin(5*pi*y**2)',
+               # 'cos(5*pi*x**2)*sin(5*pi*y**2)',
                # 'cos(y)*sin(x)'
                # 'random.triangular(x,y)',
                # 'random.gauss(x,y)',
