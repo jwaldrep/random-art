@@ -10,7 +10,7 @@
     <!--<link rel="stylesheet" type="text/css" href="css/style.css"/>-->
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/freewall.js"></script>
-    <!--<script type="test/javascript" src="js/jquery.lazyload.js"></script>-->
+    <script type="test/javascript" src="js/jquery.lazyload.js"></script>
     <style type="text/css">
         .free-wall {
             margin: 15px;
@@ -46,13 +46,13 @@
         <!--<img class="lazy img-responsive" data-original="images/1.jpg" width="765" height="574" alt="Corvette Pitstop"><br/>-->
       <!--</div>-->
 
-<div id="freewall" class="free-wall"></div>
+<div id="freewall" class="free-wall"><img class='lazy' data-original='images/1.jpg' width='300' height='300'></div>
 
 <script type="text/javascript">
 
-//        var temp = "<div class='brick' style='width:{width}px;'><img src='images/{index}.jpg' width='100%'></div>";
-        var temp = "<div class='brick' style='width:{width}px;'><img class='lazy' data-original='images/{index}.jpg' width='100%' height='100%'></div>";
-    //    var temp = "<div><img class='lazy' data-original='images/{index}.jpg' width='100%' height='300'></div>";
+    //    var temp = "<div class='brick' style='width:{width}px;'><img src='images/{index}.jpg' width='100%'></div>";
+        var temp = "<div class='brick' style='width:{width}px;'><img class='lazy' data-original='images/{index}.jpg' width='100%'></div>";
+//    var temp = "<div><img class='lazy' data-original='images/{index}.jpg' width='100%' height='100%'></div>";
 
     var w = 1, h = 1, html = '', limitItem = 98;
     for (var i = 0; i < limitItem; ++i) {
@@ -89,14 +89,11 @@
 </script>
 
   <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
-  <!--<script src="jquery.lazyload.js?v=1.9.1"></script>-->
+  <script src="jquery.lazyload.js?v=1.9.1"></script>
   <script src="js/all.js"></script>
   <script type="text/javascript" charset="utf-8">
   $(function() {
-     $("img.lazy").lazyload({
-//         effect: "fadeIn",
-//         container: "#freewall"
-     });
+     $("img.lazy").lazyload();
   });
   </script>
 
